@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_28_173134) do
+ActiveRecord::Schema.define(version: 2020_03_01_182954) do
+
+  create_table "needs", force: :cascade do |t|
+    t.integer "level"
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "satisfiers", force: :cascade do |t|
+    t.date "date_added"
+    t.date "date_completed"
+    t.integer "user_id"
+    t.integer "need_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
