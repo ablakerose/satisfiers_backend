@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_added: 2020-03-01
+  date_completed: 2020-03-01
+  user_id: 1
+  need_id: 1
+
+two:
+  date_added: 2020-03-01
+  date_completed: 2020-03-01
+  user_id: 1
+  need_id: 1
