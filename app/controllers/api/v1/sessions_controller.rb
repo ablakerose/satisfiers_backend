@@ -1,8 +1,10 @@
 class Api::V1::SessionsController < ApplicationController
 
      def create
-        if @user = User.find_by(username: params[:session][:password])
-            session[:user_id] = @user.user_id
+        @user = User.find_by(username: params[:session][:username])
+
+        if @user && @user.authenticate(params[:session][:password])
+            session[:user_id] = @user.id
             render json: @user
         else 
             render json: {
@@ -19,5 +21,12 @@ class Api::V1::SessionsController < ApplicationController
                 error: "No one logged in"
             }
         end
+    end
+
+    def destroy
+        session.clear
+        render json: {
+            notice: "successfully logged out"
+        }
     end
 end
