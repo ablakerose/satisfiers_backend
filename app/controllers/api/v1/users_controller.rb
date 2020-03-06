@@ -16,6 +16,7 @@ class Api::V1::UsersController < ApplicationController
         
         if user.save 
             #you user signs in, set session for that user_id equal to the user.id
+            #otherwise, the front end things you'res signe din but the backend does not.
             session[:user_id] = user.id
             render json: user, status: created
         else
