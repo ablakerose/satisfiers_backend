@@ -1,6 +1,8 @@
 class Satisfier < ApplicationRecord
     
     belongs_to :user
-    belongs_to :need
+    has_many :ways
+    has_many :needs, through: :ways
     
+    validates :activity, presence: true
 end

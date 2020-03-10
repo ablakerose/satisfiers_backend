@@ -1,5 +1,5 @@
 class Need < ApplicationRecord
-    has_many :satisfiers
-    has_many :users, through: :satisfiers
+    has_many :ways
+    has_many :satisfiers, through: :ways
     
 end

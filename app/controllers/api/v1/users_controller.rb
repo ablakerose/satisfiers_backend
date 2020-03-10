@@ -20,17 +20,27 @@ class Api::V1::UsersController < ApplicationController
             session[:user_id] = user.id
             render json: user, status: created
         else
+            
             resp = {
                 error: user.errors.full_messages.to_sentence
             }
             render json: user.errors, status: :unprocessable_entity
         end
-    end
+
+#           def create
+#     user = User.first
+#     card = Card.find_or_create_by(card_params)
+#     user_card = user.user_cards.new(user_card_params)
+#     user_card.card_id = card.id
+#     user_card.save
+#     render json: card
+#   end
+#     end
 
     #wrap_parameters :user, include: [:name, username, :password]
 private
 def user_params
-    params.require(:user).permit(:name, :username, :password)
+    params.require(:user).permit(:name, :username, :pwd)
   end
 
 
