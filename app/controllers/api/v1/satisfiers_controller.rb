@@ -15,7 +15,8 @@ end
 
 def create
     
-    satisfier = Satisfier.new(satisfier_params)
+    
+    satisfier = User.first.satisfiers.new(satisfier_params)
       if satisfier.save
         render json: satisfier
       else 
