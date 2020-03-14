@@ -16,27 +16,28 @@ end
 def create
     
     
-    satisfier = User.first.satisfiers.new(satisfier_params)
-      if satisfier.save
-        render json: satisfier
-      else 
-        render json: {error: 'Error creating satisfer'}
-      end
+  satisfier = User.first.satisfiers.new(satisfier_params)
+    if satisfier.save
+      render json: satisfier
+    else 
+      render json: {error: 'Error creating satisfer'}
+    end
 
-    # if satisfier.save
-    #     render json: satisfier, status: created
-    # else
-    #     resp = {
-    #         error: satisfier.errors.full_messages.to_sentence
-    #     }
-    #     render json: user.errors, status: :unprocessable_entity
-    # end
+  # if satisfier.save
+  #     render json: satisfier, status: created
+  # else
+  #     resp = {
+  #         error: satisfier.errors.full_messages.to_sentence
+  #     }
+  #     render json: user.errors, status: :unprocessable_entity
+  # end
 end
 
 
 private
 def satisfier_params
-    params.require(:satisfier).permit(:date_added, :date_completed, :user_id, :activity, :value)
+    params.require(:satisfier).permit(:user_id, :activity, :value, needs_ids: [])
+    #make sure the nexted attribute doesn't have to be the join table of ways
 
   end
 
