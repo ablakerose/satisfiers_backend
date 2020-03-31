@@ -9,21 +9,15 @@ end
 
 def show 
 
-        needs = User.first.satisfiers.map {|satisfier|  "#{satisfier.needs.name}"}
-        render json: needs
+    need = Need.find_by_id(params[:id])
+    render json: need, include: [:satisfiers]
+  
+        # needs = User.first.satisfiers.map {|satisfier|  "#{satisfier.needs.name}"}
+        # render json: needs
 
-# need = Need.all
-# render json: need, include: [:satisfiers]
-≈
-
-    # else 
-    #     render json: {
-    #              error: "You must be logged in to see needs"   
-    #             }
-
-    # needs = Need.all 
-    # render json: needs
 end
+
+
 
 
 end
