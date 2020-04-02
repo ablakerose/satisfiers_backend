@@ -4,31 +4,11 @@ Need.destroy_all
 Satisfier.destroy_all
 Way.destroy_all
 
-# "needs"
-#     t.integer "level"
-#     t.string "name"
-  
-#  "satisfiers"
-#     t.integer "user_id"
-#     t.integer "need_id"
-#     t.string "activity"
-#     t.integer "value"
-  
-# "ways"
-#     t.string "satisfier_id"
-#     t.string "need_id"
-
-# "users"
-#     t.string "name"
-#     t.string "username"
-#     t.string "password_digest"
-   
-
 max = User.create(name: "Max", username: "max@needs.com", password: "pass123")
 
 
 
-cookingwfriends = Satisfier.create(activity: "cooking with friends", date_completed: 02-27-20, value: 1)
+
 gardening = Satisfier.create(activity: "gardening", date_completed: 02-28-20, value: 1)
 protection = Need.create(name: "Protection", level: 0)
 affection = Need.create(name: "Affection", level: 0)
@@ -40,104 +20,114 @@ identity = Need.create(name: "Identity", level: 0)
 freedom = Need.create(name: "Freedom", level: 0) 
 subsistence = Need.create(name: "Subsistence", level: 0)
 
-cookingwfriends.user = max
-
-way1 = Way.new
-way1.satisfier = cookingwfriends
-cookingwfriends.save
-way1.need = subsistence
-way1.save
-
-# cookingwfriends.need = subsistence
+# cookingwfriends = Satisfier.create(activity: "cooking with friends", date_completed: 02-27-20, value: 1)
 # cookingwfriends.user = max
-# subsistence.save
+# way1 = Way.new
+# way1.satisfier = cookingwfriends
 # cookingwfriends.save
+# way1.need = subsistence
+# way1.save
+# way1.need = creation
+# way1.save
 
 
-way2 = Way.new
-way2.satisfier = gardening
-gardening.user = max
-way2.save
-gardening.save
-way2.need = subsistence
-way2.need = understanding
-way2.need = leisure
-way2.save
+# way2 = Way.new
+# way2.satisfier = gardening
+# gardening.user = max
+# way2.save
+# gardening.save
+# # way2.need = subsistence
+# # way2.save
+# # way2.need = understanding
+# # way2.save
+# way2.need = leisure
+# way2.save
 
-drawing = Satisfier.create(activity: "drawing", date_completed: 02-28-20, value: 1)
-drawing.user = max
-way3 = Way.new
-way3.satisfier = drawing
-#way3.satisfier = creation
-way3.save
-drawing.save
-#creation.save
-way3.need = leisure
-way3.save
-
-reading = Satisfier.new(activity: "reading", date_completed: 02-28-20, value: 1)
-reading.user = max
-way4= Way.new
-way4.satisfier = reading
-way4.save
-reading.save
-way4.need = understanding
-way4.need = leisure
-way4.save
-
-volunteer = Satisfier.new(activity: "volunteer at food pantry", date_completed: 02-28-20)
-volunteer.user = max
-way5= Way.new
-way5.satisfier = volunteer
-way5.save
-volunteer.save
-way5.need = participation
-way5.save
-way5.need = identity
-way5.save
-
-blockParty = Satisfier.new(activity: "attend neighborhood block party", date_completed: 02-28-20)
-blockParty.user = max
-way6= Way.new
-way6.satisfier = blockParty
-way6.save
-blockParty.save
-way6.need = participation
-way6.save
-way6.need = affection
-way6.save
+# drawing = Satisfier.create(activity: "drew in a notebook outside", date_completed: 02-28-20, value: 2)
+# drawing.user = max
+# way3 = Way.new
+# way3.satisfier = drawing
+# way3.save
+# drawing.save
+# way3.need = freedom
+# way3.save
+# way3.need = leisure
+# way3.save
+# way3.need = creation
+# way3.save
 
 
-# blockParty = Satisfier.new(activity: "blockParty", date_completed: 02-28-20)
-# blockParty.need = participation
+# reading = Satisfier.new(activity: "read a book for pleasure", date_completed: 02-28-20, value: 2)
+# reading.user = max
+# way4= Way.new
+# way4.satisfier = reading
+# way4.save
+# reading.save
+# way4.need = understanding
+# way4.save
+# way4.need = leisure
+# way4.save
+
+# volunteer = Satisfier.new(activity: "volunteered at food pantry", date_completed: 02-28-20, value: 2)
+# volunteer.user = max
+# way5= Way.new
+# way5.satisfier = volunteer
+# way5.save
+# volunteer.save
+# way5.need = participation
+# way5.save
+# way5.need = identity
+# way5.save
+
+# blockParty = Satisfier.new(activity: "attended the neighborhood block party", date_completed: 02-28-20, value: 2)
 # blockParty.user = max
-# participation.save
+# way6= Way.new
+# way6.satisfier = blockParty
+# way6.save
 # blockParty.save
+# way6.need = participation
+# way6.save
+# way6.need = affection
+# way6.save
+# way6.need = protection
+# way6.save
 
-# napping = Satisfier.new(activity: "napping", date_completed: 02-28-20)
-# napping.need = leisure
+# napping = Satisfier.new(activity: "took a nap", date_completed: 02-28-20, value: 2)
 # napping.user = max
-# leisure.save
+# way7= Way.new
+# way7.satisfier = napping
+# way7.save
 # napping.save
+# way7.need = leisure
+# way7.save
+# way7.need = freedom
+# way7.save
 
-# playwkids = Satisfier.new(activity: "playwkids", date_completed: 02-28-20)
-# playwkids.need = affection
+
+
+# playwkids = Satisfier.new(activity: "played with kids", date_completed: 02-28-20, value: 2)
 # playwkids.user = max
-# affection.save
+# way8= Way.new
+# way8.satisfier = playwkids
+# way8.save
 # playwkids.save
+# way8.need = leisure
+# way8.save
+# way8.need = affection
+# way8.save
 
-
-# attendProtest = Satisfier.new(activity: "attendProtest", date_completed: 02-28-20)
-# attendProtest.need = freedom
-# attendProtest.user = max
-# freedom.save
-# attendProtest.save
-
-# journal = Satisfier.new(activity: "journal", date_completed: 02-28-20)
-# journal.need = identity
-# journal.user = max
-# identity.save
-# journal.save
+# attendclass = Satisfier.new(activity: "attend a cooking class", date_completed: 02-28-20, value: 2)
+# attendclass.user = max
+# way9= Way.new
+# way9.satisfier = attendclass   
+# way9.save
+# attendclass.save
+# way9.need = leisure
+# way9.save
+# way9.need = understanding
+# way9.save
+# way9.need = creation
+# way9.save
 
 
 

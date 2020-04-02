@@ -25,8 +25,25 @@ user = User.first
   needs = Need.find(need_ids)
   
    render json: needs, include: [:satisfiers]
+end
+
+def update
+ 
+  satisfier = Satisfier.find_by(id: params[:id])
+  satisfier.update(satisfier_params)
+  render json: satisfier
+   
+end
+
+
+def destroy
+satisfier = Satisfier.find(params[:id])
+satisfier.destroy
 
 end
+
+
+
 
 
 private
